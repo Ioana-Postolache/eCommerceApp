@@ -78,3 +78,19 @@ and that should, if those are valid credentials, return a 200 OK with an Authori
 
 ## Testing
 You must implement unit tests demonstrating at least 80% code coverage.
+
+
+## Docker
+
+### After restarting the AWS EC2 instance
+
+You need to restart the docker service
+```
+sudo service docker start
+```
+
+And then start your container:
+```
+docker start myContainer
+```
+Then you can access jenkins using the Public IPv4 DNS of your EC2 instance.
