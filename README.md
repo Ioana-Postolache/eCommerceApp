@@ -94,3 +94,6 @@ And then start your container:
 docker start myContainer
 ```
 Then you can access jenkins using the Public IPv4 DNS of your EC2 instance.
+
+# Open a shell into myContainer. The container name may vary in your case
+docker exec -it myContainer bash
