@@ -133,7 +133,7 @@ In the command above, the various options are:
 
 At this stage, the Jenkins console will come up on the 8080 port, say http://18.221.37.196:8080 in your local browser. 
 We need to generate an additional RSA key-pair (public and private) to secure the pipeline. We will place the public key in the Github account, and private key in the Jenkins console.
-
+```
 # Open a shell into myContainer. The container name may vary in your case
 docker exec -it myContainer bash
 # Since our project is a Maven project, we need to install Maven in the container
@@ -143,8 +143,10 @@ apk add maven
 ssh-keygen -t rsa
 # View the private key
 cat /root/.ssh/id_rsa
-# View the pubic key 
+# View the public key 
 cat /root/.ssh/id_rsa.pub
+```
+
 
 #### Admin login to Jenkins console
 
