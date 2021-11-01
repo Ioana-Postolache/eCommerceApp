@@ -223,7 +223,8 @@ docker exec -it myContainer bash
 ```
 ###  Launch a new host EC2 instance for the Tomcat server container
 
-Launch a new EC2 instance, based on Amazon Linux 2 AMI and t2.small/t2.micro. Let's name it Host_2, assuming we already have Jenkins running inside a container on Host_1.
+Launch a new EC2 instance, based on Amazon Linux 2 AMI and t2.small/t2.micro. 
+![Tomcat EC2 instance inbound security settings](readme-images/Tomcat EC2 instance settings.png)
 2. Install docker on EC2 instance
 
 Connect to Host_2 using SSH, and install docker:
@@ -393,8 +394,15 @@ free -m
 
 ```
 
-### Jenkins Maven project logs:
+Access web application from the browser
 
+<Host_2_Public_IP>:8888/myApp
+
+There is nothing to display in the /usr/local/tomcat/webapps/myApp folder on Tomcat; therefore it will show you a 404 error. 
+However, if you use a wholly developed application, it will display the content accordingly. 
+![Tomcat 404](readme-images/Tomcat 404.png)
+### Jenkins Maven build success and project logs:
+![Jenkins build success](readme-images/Jenkins build success.png)
 ```
 Started by user ioana
 Running as SYSTEM
