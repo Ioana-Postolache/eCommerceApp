@@ -1,6 +1,6 @@
 # eCommerce Application
 
-In this project, you'll have an opportunity to demonstrate the security and DevOps skills that you learned in this lesson by completing an eCommerce application. You'll start with a template for the complete application, and your goal will be to take this template and add proper authentication and authorization controls so users can only access their data, and that data can only be accessed in a secure way. 
+This project contains an eCommerce app in Spring Boot with proper authentication and authorization controls so users can only access their data, and that data can only be accessed in a secure way. 
 
 ## Project Template
 First, you'll want to get set up with the template. The template is written in Java using Spring Boot, Hibernate ORM, and the H2 database. H2 is an in memory database, so if you need to retry something, every application startup is a fresh copy.
@@ -123,13 +123,13 @@ docker run -u root -d --name myContainer -p 8080:8080 -v jenkins-data:/var/jenki
 ```
 In the command above, the various options are:
 
---name create a name for your container, say myContainer. However, the demo has shown the jenkins as container name.
--p specifies a port on which the Jenkins server will run. Basically, -p 8080:8080 mapping 8080 of the host (EC2 instance) to the 8080 of the container.
--d detached mode, meaning the container will run in the background
--v is binding a volume to persist the data of the Jenkins server. This is important because when we will restart the container, we would want the Jenkins related data (configuration, user-data, plugins) to be present there. We are binding three volumes.
--v jenkins-data:/var/jenkins_home is the first volume as the default home directory of Jenkins
--v "$HOME":/home is the second volume for user-specific data
--v /var/run/docker.sock:/var/run/docker.sock is the third volume where we have defined a docker socket in the container. This one will help to execute docker commands from within the container. Have a look at this discussion for more details.
+    --name create a name for your container, say myContainer. However, the demo has shown the jenkins as container name.
+    -p specifies a port on which the Jenkins server will run. Basically, -p 8080:8080 mapping 8080 of the host (EC2 instance) to the 8080 of the container.
+    -d detached mode, meaning the container will run in the background
+    -v is binding a volume to persist the data of the Jenkins server. This is important because when we will restart the container, we would want the Jenkins related data (configuration, user-data, plugins) to be present there. We are binding three volumes.
+    -v jenkins-data:/var/jenkins_home is the first volume as the default home directory of Jenkins
+    -v "$HOME":/home is the second volume for user-specific data
+    -v /var/run/docker.sock:/var/run/docker.sock is the third volume where we have defined a docker socket in the container. This one will help to execute docker commands from within the container. Have a look at this discussion for more details.
 
 At this stage, the Jenkins console will come up on the 8080 port, say http://18.221.37.196:8080 in your local browser. 
 We need to generate an additional RSA key-pair (public and private) to secure the pipeline. We will place the public key in the Github account, and private key in the Jenkins console.
@@ -154,38 +154,45 @@ cat /root/.ssh/id_rsa.pub
 Go to the AWS dashboard to copy the public IP address of your Linux EC2 instance. Paste the public IP address into your browser, and append with :8080 port. For the first time, it will open up the Jenkins console GUI. It will ask you the admin password for the first-time.
 The Jenkins admins password can be found at two places, in the host EC2 instance, and inside the container.
 
+```
 # Run the following commands in the host EC2 instance's terminal
 docker ps
 # Use the container ID from the command above
 docker logs <container_id>
+```
 
 Since our Jenkins server is running inside of the container, therefore the admin password will also be stored there as well.
-
+```
 # Open the bash into the container
 docker exec -it myContainer bash
 # View the file
 cat /var/jenkins_home/secrets/initialAdminPassword
+```
 
 Paste the admin password into the Jenkins console, say http://18.221.37.196:8080 in your local browser, install the suggested plugins, and create the admin account.
 
 #### Add private key to Jenkins global credentials
 At the Jenkins console, go to Manage Jenkins → Manage Credentials → Global credentials to create an SSH username and paste the private key. 
-
+```
 # Open the bash into the container, if you have exited from the bash
 docker exec -it myContainer bash
 # View the private key
 cat /root/.ssh/id_rsa
+```
+
 ![Add SSH private key to jenkins](readme-images/Add SSH private key to jenkins.png)
 
 #### Add public key to Github repository
 Go to the repository in your Github account → Settings → Deploy keys page. Paste the public key here. Recall that you can view the public key from the bash into the container as:
-
+```
 # View the public key 
 cat /root/.ssh/id_rsa.pub
+```
 
- Jenkins console: Create and build the first Job
 
-#### Create the Freestyle project type job, say myFirstJob, or choose any other name. Enter the details as mentioned below:
+####  Jenkins console: Create and build the first Job
+
+Create the Freestyle project type job, say myFirstJob, or choose any other name. Enter the details as mentioned below:
 
 - General:
 - Github project ->	Provide your Github repository URL
@@ -308,12 +315,15 @@ Maven Integration plugin: This plugin is used for building Maven jobs.
 Configure Java and Maven on Jenkins
 While building and deploying the application, the right compatible version of Java Maven should be present on the Jenkins server. You can check the version of Java and Maven from inside of the Jenkins container:
 
+```
 # Open a shell into the Jenkins container
 docker exec -it myContainer bash
 java -version
 echo $JAVA_HOME
 # We already installed Maven using the command "apk add maven" earlier
 mvn -version
+```
+
 
 Go to the Jenkins console, and open the Manage Jenkins → Global Tool Configuration settings.
 
