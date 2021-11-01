@@ -393,3 +393,219 @@ free -m
 
 ```
 
+### Jenkins Maven project logs:
+
+```
+Started by user ioana
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+using credential 579dbe45-83cf-491b-90db-fe34164881c1
+Cloning the remote Git repository
+Cloning repository git@github.com:Ioana-Postolache/eCommerceApp.git
+ > git init /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts # timeout=10
+Fetching upstream changes from git@github.com:Ioana-Postolache/eCommerceApp.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.32.0'
+using GIT_SSH to set credentials 
+ > git fetch --tags --force --progress -- git@github.com:Ioana-Postolache/eCommerceApp.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url git@github.com:Ioana-Postolache/eCommerceApp.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 5b3e2ba12979d30c16280284792a7ef9bda8f689 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 5b3e2ba12979d30c16280284792a7ef9bda8f689 # timeout=10
+Commit message: "Added packaging in pom.xml and updated README"
+ > git rev-list --no-walk 0244eda0e7084ab96de8f0ad2256c96dfa7b5daf # timeout=10
+Parsing POMs
+Discovered a new module com.example:eCommerceApp eCommerceApp
+Modules changed, recalculating dependency graph
+Established TCP socket on 32805
+[jenkins_to_tomcat_separate_hosts] $ /opt/java/openjdk/bin/java -cp /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven35-agent-1.13.jar:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3/boot/plexus-classworlds-2.6.0.jar:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3/conf/logging jenkins.maven3.agent.Maven35Main /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3 /var/jenkins_home/war/WEB-INF/lib/remoting-4.10.jar /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven35-interceptor-1.13.jar /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven3-interceptor-commons-1.13.jar 32805
+<===[JENKINS REMOTING CAPACITY]===>channel started
+Executing Maven:  -B -f /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/pom.xml clean install package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.example:eCommerceApp >----------------------
+[INFO] Building eCommerceApp 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-war-plugin/3.2.2/maven-war-plugin-3.2.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-war-plugin/3.2.2/maven-war-plugin-3.2.2.pom (9.7 kB at 15 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-war-plugin/3.2.2/maven-war-plugin-3.2.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-war-plugin/3.2.2/maven-war-plugin-3.2.2.jar (91 kB at 1.5 MB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ eCommerceApp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ eCommerceApp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ eCommerceApp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ eCommerceApp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ eCommerceApp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ eCommerceApp ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.example.demo.controllers.UserControllerTest
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+12:11:00.282 [main] INFO com.example.demo.controllers.UserController - Username set with 
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.969 sec - in com.example.demo.controllers.UserControllerTest
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ eCommerceApp ---
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.pom (15 kB at 1.0 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream-parent/1.4.10/xstream-parent-1.4.10.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream-parent/1.4.10/xstream-parent-1.4.10.pom (35 kB at 2.0 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.pom (386 B at 39 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.pom (1.6 kB at 146 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-mapping/3.0.0/maven-mapping-3.0.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-mapping/3.0.0/maven-mapping-3.0.0.pom (4.1 kB at 414 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/22/maven-shared-components-22.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/22/maven-shared-components-22.pom (5.1 kB at 426 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar (7.2 kB at 61 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-mapping/3.0.0/maven-mapping-3.0.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar (25 kB at 178 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-mapping/3.0.0/maven-mapping-3.0.0.jar (11 kB at 71 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar (85 kB at 488 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar (560 kB at 1.7 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.jar (590 kB at 1.6 MB/s)
+[INFO] Packaging webapp
+[INFO] Assembling webapp [eCommerceApp] in [/var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Webapp assembled in [239 msecs]
+[INFO] Building war: /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT.war
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.5.RELEASE:repackage (repackage) @ eCommerceApp ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ eCommerceApp ---
+[INFO] Installing /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT.war to /root/.m2/repository/com/example/eCommerceApp/0.0.1-SNAPSHOT/eCommerceApp-0.0.1-SNAPSHOT.war
+[INFO] Installing /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/pom.xml to /root/.m2/repository/com/example/eCommerceApp/0.0.1-SNAPSHOT/eCommerceApp-0.0.1-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ eCommerceApp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ eCommerceApp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ eCommerceApp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ eCommerceApp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ eCommerceApp ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ eCommerceApp ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [eCommerceApp] in [/var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Webapp assembled in [372 msecs]
+[INFO] Building war: /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT.war
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.5.RELEASE:repackage (repackage) @ eCommerceApp ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.932 s
+[INFO] Finished at: 2021-11-01T12:11:14Z
+[INFO] ------------------------------------------------------------------------
+Waiting for Jenkins to finish collecting data
+[JENKINS] Archiving /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/pom.xml to com.example/eCommerceApp/0.0.1-SNAPSHOT/eCommerceApp-0.0.1-SNAPSHOT.pom
+[JENKINS] Archiving /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT.war to com.example/eCommerceApp/0.0.1-SNAPSHOT/eCommerceApp-0.0.1-SNAPSHOT.war
+channel stopped
+SSH: Connecting from host [a706ac60989d]
+SSH: Connecting with configuration [Tomcat] ...
+SSH: Creating session: username [host2admin], hostname [172.31.86.130], port [22]
+SSH: Connecting session ...
+SSH: Connected
+SSH: Opening SFTP channel ...
+SSH: SFTP channel open
+SSH: Connecting SFTP channel ...
+SSH: Connected
+SSH: Remote root is not absolute, getting absolute directory from PWD
+SSH: cd [/home/host2admin]
+SSH: OK
+SSH: cd [/opt/docker]
+SSH: OK
+SSH: put [eCommerceApp-0.0.1-SNAPSHOT.war]
+SSH: OK
+SSH: Opening exec channel ...
+SSH: EXEC: channel open
+SSH: EXEC: STDOUT/STDERR from command [docker stop demo_container;  
+docker rm -f demo_container;
+docker stop demo_image;  
+docker rm -f demo_image; 
+docker image rm -f demo_image; 
+cd /opt/docker; 
+docker build -t demo_image .] ...
+SSH: EXEC: connected
+Error response from daemon: No such container: demo_container
+Error: No such container: demo_container
+Error response from daemon: No such container: demo_image
+Error: No such container: demo_image
+Error: No such image: demo_image
+Sending build context to Docker daemon  39.44MB
+
+Step 1/3 : From tomcat:8-jre8
+ ---> cff25871f024
+Step 2/3 : MAINTAINER "Udacity"
+ ---> Using cache
+ ---> b8c8f57b5a17
+Step 3/3 : COPY ./*.war /usr/local/tomcat/webapps
+ ---> 12fe17275ab5
+Successfully built 12fe17275ab5
+Successfully tagged demo_image:latest
+SSH: EXEC: completed after 1,802 ms
+SSH: Opening exec channel ...
+SSH: EXEC: channel open
+SSH: EXEC: STDOUT/STDERR from command [docker run -d --name demo_container -p 8888:8080 demo_image] ...
+SSH: EXEC: connected
+a88fa21433b6f89899737c756237007362b022945186d4018330958432b25f98
+SSH: EXEC: completed after 800 ms
+SSH: Disconnecting configuration [Tomcat] ...
+SSH: Transferred 1 ( 1 + 0 ) file(s)
+Finished: SUCCESS
+```
+
