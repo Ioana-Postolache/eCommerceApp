@@ -88,7 +88,7 @@ Choose a default VPC, public subnet, and enable the auto-assign public IP
 For the security group, allow TCP traffic on port 80 and 8080, and SSH traffic on port 22 from anywhere. Leave the remaining values as the defaults.
 Download a new key-pair or use the existing one.
 ### Security group inbound rules for Jenkins EC2 instance
-![Security Group Inbound rules for jenkins](readme-images/Security Group Inbound rules for jenkins.png)
+![Security Group Inbound rules for jenkins](readme-images/Security%20Group%20Inbound%20rules%20for%20jenkins.png)
 Connect to the EC2 instance
 Use SSH to connect to your Linux EC2 instance:
 ```
@@ -150,7 +150,7 @@ cat /root/.ssh/id_rsa.pub
 
 #### Admin login to Jenkins console
 
-![unlock Jenkins](readme-images/unlock Jenkins.png)
+![unlock Jenkins](readme-images/unlock%20Jenkins.png)
 Go to the AWS dashboard to copy the public IP address of your Linux EC2 instance. Paste the public IP address into your browser, and append with :8080 port. For the first time, it will open up the Jenkins console GUI. It will ask you the admin password for the first-time.
 The Jenkins admins password can be found at two places, in the host EC2 instance, and inside the container.
 
@@ -180,7 +180,7 @@ docker exec -it myContainer bash
 cat /root/.ssh/id_rsa
 ```
 
-![Add SSH private key to jenkins](readme-images/Add SSH private key to jenkins.png)
+![Add SSH private key to jenkins](readme-images/Add%20SSH%20private%20key%20to%20jenkins.png)
 
 #### Add public key to Github repository
 Go to the repository in your Github account → Settings → Deploy keys page. Paste the public key here. Recall that you can view the public key from the bash into the container as:
@@ -233,7 +233,7 @@ docker exec -it myContainer bash
 ###  Launch a new host EC2 instance for the Tomcat server container
 
 Launch a new EC2 instance, based on Amazon Linux 2 AMI and t2.small/t2.micro. 
-![Tomcat EC2 instance inbound security settings](readme-images/Tomcat EC2 instance settings.png)
+![Tomcat EC2 instance inbound security settings](readme-images/Tomcat%20EC2%20instance%20settings.png)
 2. Install docker on EC2 instance
 
 Connect to Host_2 using SSH, and install docker:
@@ -324,7 +324,6 @@ echo $JAVA_HOME
 mvn -version
 ```
 
-
 Go to the Jenkins console, and open the Manage Jenkins → Global Tool Configuration settings.
 
 - JDK
@@ -348,8 +347,8 @@ Add the new host private IP address and username of the newly created user
  Create a new job, mySecondJob (Type: Maven project), and configure with the following details (leaving remaining details as default):
  
 Source Code Management
-Repository : https://github.com/YOUR_USERNAME/nd035-c4-Security-and-DevOps
-Branches to build : */master
+Repository: your repo
+Branches to build : */main
  
 Build
 Root POM: pom.xml
@@ -393,7 +392,7 @@ Native memory allocation (mmap) failed to map 32604160 bytes for committing rese
 
 free -m
 
-Just add some. Try with 1 GB for begin.
+Just add some. Try with 1 GB.
 
 sudo fallocate -l 1G /swapfile
 sudo chmod 600 /swapfile
@@ -412,9 +411,9 @@ Access web application from the browser
 
 There is nothing to display in the /usr/local/tomcat/webapps/myApp folder on Tomcat; therefore it will show you a 404 error. 
 However, if you use a wholly developed application, it will display the content accordingly. 
-![Tomcat 404](readme-images/Tomcat 404.png)
+![Tomcat 404](readme-images/Tomcat%20404.png)
 ### Jenkins Maven build success and project logs:
-![Jenkins build success](readme-images/Jenkins build success.png)
+![Jenkins build success](readme-images/Jenkins%20build%20success.png)
 ```
 Started by user ioana
 Running as SYSTEM
