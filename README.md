@@ -1,13 +1,8 @@
 # eCommerce Application
 
-This project contains an eCommerce app in Spring Boot with proper authentication and authorization controls so users can only access their data, and that data can only be accessed in a secure way. 
+This project contains an eCommerce app written in Java using Spring Boot, Hibernate ORM, and the H2 database, with proper authentication and authorization controls so users can only access their data, and that data can only be accessed in a secure way. 
 
-## Project Template
-First, you'll want to get set up with the template. The template is written in Java using Spring Boot, Hibernate ORM, and the H2 database. H2 is an in memory database, so if you need to retry something, every application startup is a fresh copy.
-
-To use the template, import it in the IDE of your choice as a Spring Boot application. Where required, this readme assumes the eclipse IDE.
-
-Once the project is set up, you will see 5 packages:
+## Packages
 
 * demo - this package contains the main method which runs the application
 
@@ -19,8 +14,7 @@ Once the project is set up, you will see 5 packages:
 
 * controllers - these contain the api endpoints for our app, 1 per model. Note they all have the `@RestController` annotation to allow Spring to understand that they are a part of a REST API
 
-Exercise:
-Once you've created a user, try  to add items to cart (see the `ModifyCartRequest` class) and submit an order. 
+
 
 ## Adding Authentication and Authorization
 We need to add proper authentication and authorization controls so users can only access their data, and that data can only be accessed in a secure way. We will do this using a combination of usernames and passwords for authentication, as well as JSON Web Tokens (JWT) to handle the authorization.
@@ -364,6 +358,15 @@ docker run -d --name demo_container -p 8888:8080 demo_image
 
  
 The command above will create a new container, demo_container using the demo_image created in the previous command.
+
+Access web application from the browser
+
+<Host_2_Public_IP>:8888/myApp
+
+There is nothing to display in the /usr/local/tomcat/webapps/myApp folder on Tomcat; therefore it will show you a 404 error. 
+However, if you use a wholly developed application, it will display the content accordingly. 
+![Tomcat 404](readme-images/Tomcat%20404.png)
+
  
 #### Jenkins errors
 
@@ -387,11 +390,3 @@ Check again:
 free -m
 
 ```
-
-Access web application from the browser
-
-<Host_2_Public_IP>:8888/myApp
-
-There is nothing to display in the /usr/local/tomcat/webapps/myApp folder on Tomcat; therefore it will show you a 404 error. 
-However, if you use a wholly developed application, it will display the content accordingly. 
-![Tomcat 404](readme-images/Tomcat%20404.png)
