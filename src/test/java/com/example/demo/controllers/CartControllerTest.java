@@ -95,26 +95,6 @@ public class CartControllerTest {
         assertEquals(BigDecimal.valueOf(15), cart.getTotal());
     }
 
-    @Test
-    public void testRemoveAllFromCart(){
-        List<Item> items = new ArrayList<>();
-        items.add(getItem().get());
-        items.add(getItem().get());
-        when(userRepository.findByUsername("test")).thenReturn(getUser(items));
-        when(itemRepository.findById(0L)).thenReturn(getItem());
-
-        ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
-        modifyCartRequest.setItemId(getItem().get().getId());
-        modifyCartRequest.setQuantity(0);
-        modifyCartRequest.setUsername("test");
-        ResponseEntity<Cart> response = cartController.removeFromCart(modifyCartRequest);
-
-        Cart cart = response.getBody();
-        assertEquals(200, response.getStatusCodeValue());
-        assertNotNull(cart);
-        assertEquals(0, cart.getItems().size());
-    }
-
     private ModifyCartRequest getModifyCartRequest() {
         ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
         modifyCartRequest.setItemId(getItem().get().getId());

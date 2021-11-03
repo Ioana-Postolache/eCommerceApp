@@ -19,30 +19,6 @@ Once the project is set up, you will see 5 packages:
 
 * controllers - these contain the api endpoints for our app, 1 per model. Note they all have the `@RestController` annotation to allow Spring to understand that they are a part of a REST API
 
-In resources, you'll see the application configuration that sets up our database and Hibernate, It also contains a data.sql file with a couple of items to populate the database with. Spring will run this file every time the application starts
-
-In eclipse, you can right click the project and click  “run as” and select Spring Boot application. The application should tell you it’s starting in the console view. Once started, using a REST client, such as Postman, explore the APIs.
-
-Some examples are as below:
-To create a new user for example, you would send a POST request to:
-http://localhost:8080/api/user/create with an example body like 
-
-```
-{
-"username": "test"
-}
-```
-
-
-and this would return
-```
-{
-"id" 1,
-"username": "test"
-}
-```
-
-
 Exercise:
 Once you've created a user, try  to add items to cart (see the `ModifyCartRequest` class) and submit an order. 
 
@@ -74,11 +50,18 @@ POST /login
 }
 ```
 
-and that should, if those are valid credentials, return a 200 OK with an Authorization header which looks like "Bearer <data>" this "Bearer <data>" is a JWT and must be sent as a Authorization header for all other rqeuests. If it's not present, endpoints should return 401 Unauthorized. If it's present and valid, the endpoints should function as normal.
+and that should, if those are valid credentials, return a 200 OK with an Authorization header which looks like "Bearer <data>" this "Bearer <data>" is a JWT and must be sent as a Authorization header for all other rqeuests. 
+If it's not present, endpoints should return 401 Unauthorized. If it's present and valid, the endpoints should function as normal.
+![Login to get bearer token](readme-images/Login%20to%20get%20bearer%20token.png)
 
-## Testing
-You must implement unit tests demonstrating at least 80% code coverage.
-
+## Splunk
+Followed instructions from [here](https://www.baeldung.com/spring-boot-logging)
+Log file found in: `./logs/spring-boot-logger.log`
+![splunk search by error.png](readme-images/splunk%20search%20by%20error.png)
+![splunk dashboard.png](readme-images/splunk%20dashboard.png)
+![splunk exception alert.png](readme-images/splunk%20exception%20alert.png)
+![splunk exception search.png](readme-images/splunk%20exception%20search.png)
+![splunk search info events.png](readme-images/splunk%20search%20info%20events.png)
 
 ## Docker
 
