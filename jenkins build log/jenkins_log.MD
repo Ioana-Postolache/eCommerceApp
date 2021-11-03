@@ -21,15 +21,15 @@ using GIT_SSH to set credentials
  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
 Avoid second fetch
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision df881e7b4ff43e52973695415539385f327152f7 (refs/remotes/origin/main)
+Checking out Revision 797bd3d3615130fffe9f435fbc17300ea40bd843 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f df881e7b4ff43e52973695415539385f327152f7 # timeout=10
-Commit message: "Added tests"
- > git rev-list --no-walk 5b3e2ba12979d30c16280284792a7ef9bda8f689 # timeout=10
+ > git checkout -f 797bd3d3615130fffe9f435fbc17300ea40bd843 # timeout=10
+Commit message: "Added jenkins build log"
+ > git rev-list --no-walk df881e7b4ff43e52973695415539385f327152f7 # timeout=10
 Parsing POMs
 Modules changed, recalculating dependency graph
-Established TCP socket on 34211
-[jenkins_to_tomcat_separate_hosts] $ /opt/java/openjdk/bin/java -cp /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven35-agent-1.13.jar:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3/boot/plexus-classworlds-2.6.0.jar:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3/conf/logging jenkins.maven3.agent.Maven35Main /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3 /var/jenkins_home/war/WEB-INF/lib/remoting-4.10.jar /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven35-interceptor-1.13.jar /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven3-interceptor-commons-1.13.jar 34211
+Established TCP socket on 45707
+[jenkins_to_tomcat_separate_hosts] $ /opt/java/openjdk/bin/java -cp /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven35-agent-1.13.jar:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3/boot/plexus-classworlds-2.6.0.jar:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3/conf/logging jenkins.maven3.agent.Maven35Main /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.6.3 /var/jenkins_home/war/WEB-INF/lib/remoting-4.10.jar /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven35-interceptor-1.13.jar /var/jenkins_home/plugins/maven-plugin/WEB-INF/lib/maven3-interceptor-commons-1.13.jar 45707
 <===[JENKINS REMOTING CAPACITY]===>channel started
 Executing Maven:  -B -f /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/pom.xml clean install package
 [INFO] Scanning for projects...
@@ -37,13 +37,29 @@ Executing Maven:  -B -f /var/jenkins_home/workspace/jenkins_to_tomcat_separate_h
 [INFO] ----------------------< com.example:eCommerceApp >----------------------
 [INFO] Building eCommerceApp 0.0.1-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-log4j2/2.1.5.RELEASE/spring-boot-starter-log4j2-2.1.5.RELEASE.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-log4j2/2.1.5.RELEASE/spring-boot-starter-log4j2-2.1.5.RELEASE.pom (2.7 kB at 5.2 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2.pom (10 kB at 363 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2.pom (23 kB at 724 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-jul/2.11.2/log4j-jul-2.11.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-jul/2.11.2/log4j-jul-2.11.2.pom (7.7 kB at 511 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-log4j2/2.1.5.RELEASE/spring-boot-starter-log4j2-2.1.5.RELEASE.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-jul/2.11.2/log4j-jul-2.11.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-log4j2/2.1.5.RELEASE/spring-boot-starter-log4j2-2.1.5.RELEASE.jar (407 B at 9.0 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-jul/2.11.2/log4j-jul-2.11.2.jar (24 kB at 179 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.2/log4j-slf4j-impl-2.11.2.jar (23 kB at 153 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.11.2/log4j-core-2.11.2.jar (1.6 MB at 3.5 MB/s)
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ eCommerceApp ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ eCommerceApp ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 1 resource
-[INFO] Copying 1 resource
+[INFO] Copying 4 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ eCommerceApp ---
 [INFO] Changes detected - recompiling the module!
@@ -63,27 +79,22 @@ Executing Maven:  -B -f /var/jenkins_home/workspace/jenkins_to_tomcat_separate_h
  T E S T S
 -------------------------------------------------------
 Running com.example.demo.controllers.CartControllerTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.602 sec - in com.example.demo.controllers.CartControllerTest
+13:59:05.111 [main] ERROR com.example.demo.controllers.CartController - error with adding to cart. User with user name test not found.
+13:59:05.226 [main] ERROR com.example.demo.controllers.CartController - error with adding to cart. Item with id 0 not found.
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.525 sec - in com.example.demo.controllers.CartControllerTest
 Running com.example.demo.controllers.ItemControllerTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.example.demo.controllers.ItemControllerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.example.demo.controllers.ItemControllerTest
 Running com.example.demo.controllers.UserControllerTest
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-13:54:52.473 [main] INFO com.example.demo.controllers.UserController - Username set with test
-13:54:52.478 [main] INFO com.example.demo.controllers.UserController - Username set with test
-13:54:52.481 [main] ERROR com.example.demo.controllers.UserController - error with user password. Cannot create user test
-13:54:52.484 [main] INFO com.example.demo.controllers.UserController - Username set with test
-13:54:52.486 [main] INFO com.example.demo.controllers.UserController - Username set with test
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.307 sec - in com.example.demo.controllers.UserControllerTest
+13:59:05.383 [main] ERROR com.example.demo.controllers.UserController - error with user password. Cannot create user test
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.example.demo.controllers.UserControllerTest
 Running com.example.demo.controllers.OrderControllerTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 sec - in com.example.demo.controllers.OrderControllerTest
+13:59:05.514 [main] ERROR com.example.demo.controllers.OrderController - error with getting order history. User with user name test not found.
+13:59:05.526 [main] ERROR com.example.demo.controllers.OrderController - error with submitting order. User with user name test not found.
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 sec - in com.example.demo.controllers.OrderControllerTest
 
 Results :
 
-Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0
 
 [JENKINS] Recording test results
 [INFO] 
@@ -91,7 +102,7 @@ Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Packaging webapp
 [INFO] Assembling webapp [eCommerceApp] in [/var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT]
 [INFO] Processing war project
-[INFO] Webapp assembled in [360 msecs]
+[INFO] Webapp assembled in [233 msecs]
 [INFO] Building war: /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT.war
 [INFO] 
 [INFO] --- spring-boot-maven-plugin:2.1.5.RELEASE:repackage (repackage) @ eCommerceApp ---
@@ -104,7 +115,7 @@ Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ eCommerceApp ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 1 resource
-[INFO] Copying 1 resource
+[INFO] Copying 4 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ eCommerceApp ---
 [INFO] Changes detected - recompiling the module!
@@ -126,7 +137,7 @@ Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Packaging webapp
 [INFO] Assembling webapp [eCommerceApp] in [/var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT]
 [INFO] Processing war project
-[INFO] Webapp assembled in [390 msecs]
+[INFO] Webapp assembled in [415 msecs]
 [INFO] Building war: /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/target/eCommerceApp-0.0.1-SNAPSHOT.war
 [INFO] 
 [INFO] --- spring-boot-maven-plugin:2.1.5.RELEASE:repackage (repackage) @ eCommerceApp ---
@@ -134,8 +145,8 @@ Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  27.084 s
-[INFO] Finished at: 2021-11-03T13:55:07Z
+[INFO] Total time:  28.119 s
+[INFO] Finished at: 2021-11-03T13:59:19Z
 [INFO] ------------------------------------------------------------------------
 Waiting for Jenkins to finish collecting data
 [JENKINS] Archiving /var/jenkins_home/workspace/jenkins_to_tomcat_separate_hosts/pom.xml to com.example/eCommerceApp/0.0.1-SNAPSHOT/eCommerceApp-0.0.1-SNAPSHOT.pom
@@ -172,28 +183,28 @@ demo_container
 Error response from daemon: No such container: demo_image
 Error: No such container: demo_image
 Untagged: demo_image:latest
-Deleted: sha256:582b373af30ba3dd2b11b2c0bdef7dda7a733f4aa90eefadf563fe7a362b028e
-Deleted: sha256:344f1b737b53c022c3cc5909bc749e285ebef1097642f19ec93d227ae248c89e
-Deleted: sha256:8067ed5ae12040e4d0c93152287079379b72c40b97dbf7a7b8d4359cffe783dc
-Sending build context to Docker daemon  39.45MB
+Deleted: sha256:708709bc131a3adccce43f31283406b498818c8206304a65116fe111f7e3d2d2
+Deleted: sha256:30965255c319fc5244ae505730b2b592774488eaa4bac6005170745f65949e41
+Deleted: sha256:42cd014ecc4ae191d1f379fd8d7bdcd9775147bb8567df06eeb098fd010e3a19
+Sending build context to Docker daemon  39.84MB
 
 Step 1/3 : From tomcat:8-jre8
  ---> cff25871f024
 Step 2/3 : MAINTAINER "Udacity"
- ---> Running in c1cae14c7411
-Removing intermediate container c1cae14c7411
- ---> 42cd014ecc4a
+ ---> Running in 124f0c1e30ef
+Removing intermediate container 124f0c1e30ef
+ ---> aa46ae9c8e9c
 Step 3/3 : COPY ./*.war /usr/local/tomcat/webapps
- ---> 708709bc131a
-Successfully built 708709bc131a
+ ---> 11315df8931b
+Successfully built 11315df8931b
 Successfully tagged demo_image:latest
-SSH: EXEC: completed after 1,602 ms
+SSH: EXEC: completed after 1,802 ms
 SSH: Opening exec channel ...
 SSH: EXEC: channel open
 SSH: EXEC: STDOUT/STDERR from command [docker run -d --name demo_container -p 8888:8080 demo_image] ...
 SSH: EXEC: connected
-616b13cb5ebeccd2062ca31dfbb5336bcb59ed91a489117fdf2eb78880b88343
-SSH: EXEC: completed after 1,001 ms
+fbfd0522661865227aedca9085207288f68915cf0e429e9708e60a74fd67bea8
+SSH: EXEC: completed after 601 ms
 SSH: Disconnecting configuration [Tomcat] ...
 SSH: Transferred 1 ( 1 + 0 ) file(s)
 Finished: SUCCESS
